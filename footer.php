@@ -9,3 +9,7 @@
  */
 
 ?>
+		<?php wp_footer(); ?>
+		<?php echo get_option('footer_code') ? get_option('footer_code') : '<!-- footer_code -->'."\r\n"; ?>
+	</body>
+</html>
