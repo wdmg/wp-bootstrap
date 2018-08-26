@@ -9,6 +9,9 @@
 module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+		dirs: {
+			lang: 'languages',
+		},
         concat: {
 
         },
@@ -35,6 +38,49 @@ module.exports = function(grunt) {
                 }
             }
         },
+		makepot: {
+			target: {
+				options: {
+					mainFile: 'style.css',
+					domainPath: '/languages',
+					type: 'wp-theme',
+					potFilename: 'wp-bootstrap.pot',
+					updateTimestamp: true,
+					potHeaders: {
+						poedit: true,
+						'last-translator': 'Alexsander Vyshnyvetskyy <alex.vyshnyvetskyy@gmail.com>',
+						'language-team': 'Alexsander Vyshnyvetskyy <alex.vyshnyvetskyy@gmail.com>',
+						'plural-forms': 'nplurals=2; plural=(n != 1);',
+						'language': 'en',
+						'x-poedit-country': 'Ukraine',
+						'x-poedit-language': 'Russian',
+						'x-poedit-sourcecharset': 'UTF-8',
+						'x-poedit-basepath': '../',
+						'x-poedit-searchpath-0': '.',
+						'x-poedit-bookmarks': '',
+						'x-textdomain-support': 'yes',
+						'x-poedit-keywordslist': true
+					},
+					updateTimestamp: true,
+					updatePoFiles: true
+				}
+			}
+		},
+		potomo: {
+			dist: {
+				options: {
+					poDel: false
+				},
+				files: [{
+					expand: true,
+					cwd: '<%= dirs.lang %>',
+					src: ['*.po'],
+					dest: '<%= dirs.lang %>',
+					ext: '.mo',
+					nonull: true
+				}]
+			}
+		},
 		sass: {
 			style: {
 				files: {
@@ -74,6 +120,10 @@ module.exports = function(grunt) {
 					spawn: false
 				}
 			},
+			languages: {
+				files: ['languages/*.po'],
+				tasks: ['potomo']
+			},
 			scripts: {
 				files: ['assets/js/admin.js', 'assets/js/core.js'],
 				tasks: ['uglify:core'],
@@ -93,5 +143,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-css');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-autoprefixer');
-    grunt.registerTask('default', ['uglify', 'sass', 'autoprefixer', 'cssmin']);
+	grunt.loadNpmTasks('grunt-potomo');
+	grunt.loadNpmTasks('grunt-wp-i18n');
+	grunt.registerTask('translate', ['makepot', 'potomo']);
+    grunt.registerTask('default', ['uglify', 'makepot', 'sass', 'autoprefixer', 'cssmin']);
 };

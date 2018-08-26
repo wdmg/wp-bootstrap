@@ -21,7 +21,8 @@
     "url": "https://github.com/wdmg/wp-bootstrap/issues"
   },
   "homepage": "https://github.com/wdmg/wp-bootstrap#readme",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "grunt": "^1.0.3",
     "grunt-autoprefixer": "^3.0.4",
     "grunt-contrib-concat": "^1.0.1",
@@ -30,6 +31,8 @@
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify-es": "^3.3.0",
     "grunt-contrib-watch": "^1.1.0",
-    "grunt-css": "^0.5.4"
+    "grunt-css": "^0.5.4",
+    "grunt-wp-i18n": "^1.0.2",
+    "grunt-potomo": "^3.5.0"
   }
 }
