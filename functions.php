@@ -14,7 +14,6 @@ $author = "Alexsander Vyshnyvetskyy <alex.vyshnyvetskyy@gmail.com>";
 $shortname = "wp";
 $version = '1.0.0';
 
-	load_theme_textdomain('wp-bootstrap', get_template_directory().'/languages');
 // Load theme languages
 function load_theme_langs() {
 	load_theme_textdomain('wp-bootstrap', get_template_directory().'/languages');
@@ -38,7 +37,7 @@ add_action('admin_head', 'admin_assets');
 
 
 // Register Sidebar`s
-function register_theme_sidebars() {
+add_action('widgets_init', function() {
 	register_sidebar(
 		array(
 			'name' => __('Header Sidebar', 'wp-bootstrap'),
@@ -95,13 +94,19 @@ function register_theme_sidebars() {
 			'after_title' => '',
 		)
 	);
-}
-add_action('widgets_init', 'register_theme_sidebars');
+});
 
 
 
 
-
+add_action('after_setup_theme', function() {
+	register_nav_menus( array(
+		'top-menu' => __('Top Menu', 'wp-bootstrap'),
+		'main-menu' => __('Main Menu', 'wp-bootstrap'),
+		'sidebar-menu' => __('Sidebar Menu', 'wp-bootstrap'),
+		'footer-menu' => __('Footer Menu', 'wp-bootstrap'),
+	) );
+});
 
 
 
