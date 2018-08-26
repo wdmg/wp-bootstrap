@@ -1,0 +1,3 @@
+/*
+* Main theme javascript file
+*/

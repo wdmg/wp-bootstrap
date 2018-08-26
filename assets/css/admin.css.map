@@ -1,7 +1,7 @@
 {
 "version": 3,
 "mappings": "AAAA;;EAEE",
-"sources": ["ie.scss"],
+"sources": ["admin.scss"],
 "names": [],
-"file": "ie.css"
+"file": "admin.css"
 }

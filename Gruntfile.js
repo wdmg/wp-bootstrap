@@ -16,6 +16,15 @@ module.exports = function(grunt) {
 
         },
         uglify: {
+            admin: {
+                options: {
+                    sourceMap: true,
+                    sourceMapName: 'assets/js/admin.js.map'
+                },
+                files: {
+                    'assets/js/admin.min.js': ['assets/js/admin.js']
+                }
+            },
             core: {
                 options: {
                     sourceMap: true,
@@ -29,6 +38,7 @@ module.exports = function(grunt) {
 		sass: {
 			style: {
 				files: {
+					'assets/css/admin.css': ['assets/css/admin.scss'],
 					'assets/css/ie.css': ['assets/css/ie.scss'],
 					'assets/css/style.css': ['assets/css/style.scss']
 				}
@@ -37,6 +47,7 @@ module.exports = function(grunt) {
         autoprefixer: {
             dist: {
                 files: {
+                    'assets/css/admin.css': ['assets/css/admin.css'],
                     'assets/css/ie.css': ['assets/css/ie.css'],
                     'assets/css/style.css': ['assets/css/style.css']
                 }
@@ -49,6 +60,7 @@ module.exports = function(grunt) {
             },
             target: {
                 files: {
+                    'assets/css/admin.min.css': ['assets/css/admin.css'],
                     'assets/css/ie.min.css': ['assets/css/ie.css'],
                     'assets/css/style.min.css': ['assets/css/style.css']
                 }
@@ -56,14 +68,14 @@ module.exports = function(grunt) {
         },
 		watch: {
 			styles: {
-				files: ['assets/css/ie.scss', 'assets/css/style.scss'],
+				files: ['assets/css/admin.scss', 'assets/css/ie.scss', 'assets/css/style.scss'],
 				tasks: ['sass:style', 'cssmin'],
 				options: {
 					spawn: false
 				}
 			},
 			scripts: {
-				files: ['assets/js/core.js'],
+				files: ['assets/js/admin.js', 'assets/js/core.js'],
 				tasks: ['uglify:core'],
 				options: {
 					spawn: false
