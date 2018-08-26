@@ -103,7 +103,8 @@ add_action('after_setup_theme', function() {
 	register_nav_menus( array(
 		'top-menu' => __('Top Menu', 'wp-bootstrap'),
 		'main-menu' => __('Main Menu', 'wp-bootstrap'),
-		'sidebar-menu' => __('Sidebar Menu', 'wp-bootstrap'),
+		'left-sidebar-menu' => __('Left Sidebar Menu', 'wp-bootstrap'),
+		'right-sidebar-menu' => __('Right Sidebar Menu', 'wp-bootstrap'),
 		'footer-menu' => __('Footer Menu', 'wp-bootstrap'),
 	) );
 });

@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Bootstrap 1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/wp-bootstrap\n"
-"POT-Creation-Date: 2018-08-26 23:35:31+00:00\n"
-"PO-Revision-Date: 2018-08-27 02:37+0300\n"
+"POT-Creation-Date: 2018-08-26 23:44:02+00:00\n"
+"PO-Revision-Date: 2018-08-27 02:55+0300\n"
 "Last-Translator: Alexsander Vyshnyvetskyy <alex.vyshnyvetskyy@gmail.com>\n"
 "Language-Team: Alexsander Vyshnyvetskyy <alex.vyshnyvetskyy@gmail.com>\n"
 "Language: ru\n"
@@ -55,10 +55,14 @@ msgid "Main Menu"
 msgstr "Главное меню"
 
 #: functions.php:106
-msgid "Sidebar Menu"
-msgstr "Сайдбар меню"
+msgid "Left Sidebar Menu"
+msgstr "Меню в левом сайдбаре"
 
 #: functions.php:107
+msgid "Right Sidebar Menu"
+msgstr "Меню в правом сайдбаре"
+
+#: functions.php:108
 msgid "Footer Menu"
 msgstr "Меню в футере"
 
@@ -81,6 +85,9 @@ msgstr "Александр Вишнивецкий"
 #. Author URI of the plugin/theme
 msgid "http://vyshnyvetskyy.com/"
 msgstr "http://vyshnyvetskyy.com/"
+
+#~ msgid "Sidebar Menu"
+#~ msgstr "Сайдбар меню"
 
 #~ msgid "Before Sidebar"
 #~ msgstr "Перед контентом"
