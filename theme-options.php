@@ -123,6 +123,7 @@ if (is_admin()) {
 		register_settings('wp-bootstrap-head-body-options', 'footer_code');
 
 		// Register setting for sidebar`s visibility
+		register_settings('wp-bootstrap-sidebar-menu-options', 'top_sidebar');
 		register_settings('wp-bootstrap-sidebar-menu-options', 'header_sidebar');
 		register_settings('wp-bootstrap-sidebar-menu-options', 'left_sidebar');
 		register_settings('wp-bootstrap-sidebar-menu-options', 'right_sidebar');
@@ -175,6 +176,15 @@ if (is_admin()) {
 				echo __('<p>You can activate/deactivate the sidebars of your theme, if necessary.</p>', 'wp-bootstrap');
 			},
 			'sidebar-menu-options'
+		);
+		add_settings_field(
+			'top_sidebar',
+			__('Display top sidebar in the header', 'wp-bootstrap'),
+			function() {
+				echo '<input name="top_sidebar" type="checkbox" '.checked(1, get_option('top_sidebar'), false).' value="1" />';
+			},
+			'sidebar-menu-options',
+			'wp-bootstrap-sidebar-options'
 		);
 		add_settings_field(
 			'header_sidebar',
@@ -230,7 +240,7 @@ if (is_admin()) {
 			'sidebar-menu-options',
 			'wp-bootstrap-sidebar-options'
 		);
-
+		
 
 		// Menu visibility options
 		add_settings_section(
