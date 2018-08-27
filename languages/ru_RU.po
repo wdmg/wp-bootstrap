@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Bootstrap 1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/wp-bootstrap\n"
-"POT-Creation-Date: 2018-08-27 13:52:38+00:00\n"
-"PO-Revision-Date: 2018-08-27 16:57+0300\n"
+"POT-Creation-Date: 2018-08-27 15:17:43+00:00\n"
+"PO-Revision-Date: 2018-08-27 18:18+0300\n"
 "Last-Translator: Alexsander Vyshnyvetskyy <alex.vyshnyvetskyy@gmail.com>\n"
 "Language-Team: Alexsander Vyshnyvetskyy <alex.vyshnyvetskyy@gmail.com>\n"
 "Language: ru\n"
@@ -66,43 +66,43 @@ msgstr "Меню в правом сайдбаре"
 msgid "Footer Menu"
 msgstr "Меню в футере"
 
-#: theme-options.php:59
+#: theme-options.php:90
 msgid "WP Bootstrap Theme options"
 msgstr "Опции темы WP Bootstrap"
 
-#: theme-options.php:60
+#: theme-options.php:91
 msgid "Theme options"
 msgstr "Опции темы"
 
-#: theme-options.php:70
-msgid "Head & Body options"
+#: theme-options.php:100
+msgid "Head &amp; Body options"
 msgstr "Опции head & body"
 
-#: theme-options.php:71
-msgid "Head & Body"
-msgstr "Head & Body"
+#: theme-options.php:101
+msgid "&lt;head&gt; &amp; &lt;body&gt;"
+msgstr "&lt;head&gt; &amp; &lt;body&gt;"
 
-#: theme-options.php:79
-msgid "Sidebar & Menu options"
+#: theme-options.php:108
+msgid "Sidebar &amp; Menu options"
 msgstr "Опции сайдбар и меню"
 
-#: theme-options.php:80
-msgid "Sidebar & Menu"
+#: theme-options.php:109
+msgid "Sidebar &amp; Menu"
 msgstr "Сайдбар и меню"
 
-#: theme-options.php:88
-msgid "BackUp & Restore options"
+#: theme-options.php:116
+msgid "BackUp &amp; Restore options"
 msgstr "Опции бэкапа и восстановление"
 
-#: theme-options.php:89
-msgid "BackUp & Restore"
+#: theme-options.php:117
+msgid "BackUp &amp; Restore"
 msgstr "Бэкап и восстановление"
 
-#: theme-options.php:97
+#: theme-options.php:124
 msgid "Credits theme"
 msgstr "Информация о теме"
 
-#: theme-options.php:98
+#: theme-options.php:125
 msgid "Credits"
 msgstr "О теме"
 
@@ -125,6 +125,9 @@ msgstr "Александр Вишнивецкий"
 #. Author URI of the plugin/theme
 msgid "http://vyshnyvetskyy.com/"
 msgstr "http://vyshnyvetskyy.com/"
+
+#~ msgid "Head & Body"
+#~ msgstr "Head & Body"
 
 #~ msgid "Before Sidebar"
 #~ msgstr "Перед контентом"

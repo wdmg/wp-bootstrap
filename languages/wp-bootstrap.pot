@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Bootstrap 1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/wp-bootstrap\n"
-"POT-Creation-Date: 2018-08-27 13:52:38+00:00\n"
+"POT-Creation-Date: 2018-08-27 15:17:43+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -69,43 +69,43 @@ msgstr ""
 msgid "Footer Menu"
 msgstr ""
 
-#: theme-options.php:59
+#: theme-options.php:90
 msgid "WP Bootstrap Theme options"
 msgstr ""
 
-#: theme-options.php:60
+#: theme-options.php:91
 msgid "Theme options"
 msgstr ""
 
-#: theme-options.php:70
-msgid "Head & Body options"
+#: theme-options.php:100
+msgid "Head &amp; Body options"
 msgstr ""
 
-#: theme-options.php:71
-msgid "Head & Body"
+#: theme-options.php:101
+msgid "&lt;head&gt; &amp; &lt;body&gt;"
 msgstr ""
 
-#: theme-options.php:79
-msgid "Sidebar & Menu options"
+#: theme-options.php:108
+msgid "Sidebar &amp; Menu options"
 msgstr ""
 
-#: theme-options.php:80
-msgid "Sidebar & Menu"
+#: theme-options.php:109
+msgid "Sidebar &amp; Menu"
 msgstr ""
 
-#: theme-options.php:88
-msgid "BackUp & Restore options"
+#: theme-options.php:116
+msgid "BackUp &amp; Restore options"
 msgstr ""
 
-#: theme-options.php:89
-msgid "BackUp & Restore"
+#: theme-options.php:117
+msgid "BackUp &amp; Restore"
 msgstr ""
 
-#: theme-options.php:97
+#: theme-options.php:124
 msgid "Credits theme"
 msgstr ""
 
-#: theme-options.php:98
+#: theme-options.php:125
 msgid "Credits"
 msgstr ""
 

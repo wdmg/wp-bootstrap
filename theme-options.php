@@ -97,24 +97,24 @@ if (is_admin()) {
 		);
 		add_submenu_page(
 			'theme-options',
-			__('Head & Body options', 'wp-bootstrap'),
-			__('Head & Body', 'wp-bootstrap'),
+			__('Head &amp; Body options', 'wp-bootstrap'),
+			__('&lt;head&gt; &amp; &lt;body&gt;', 'wp-bootstrap'),
 			'manage_options',
 			'head-body-options',
 			'wp_bootstrap_options_callback'
 		);
 		add_submenu_page(
 			'theme-options',
-			__('Sidebar & Menu options', 'wp-bootstrap'),
-			__('Sidebar & Menu', 'wp-bootstrap'),
+			__('Sidebar &amp; Menu options', 'wp-bootstrap'),
+			__('Sidebar &amp; Menu', 'wp-bootstrap'),
 			'manage_options',
 			'sidebar-menu-options',
 			'wp_bootstrap_options_callback'
 		);
 		add_submenu_page(
 			'theme-options',
-			__('BackUp & Restore options', 'wp-bootstrap'),
-			__('BackUp & Restore', 'wp-bootstrap'),
+			__('BackUp &amp; Restore options', 'wp-bootstrap'),
+			__('BackUp &amp; Restore', 'wp-bootstrap'),
 			'manage_options',
 			'backup-restore-options',
 			'wp_bootstrap_options_callback'
