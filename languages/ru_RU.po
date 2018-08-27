@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Bootstrap 1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/wp-bootstrap\n"
-"POT-Creation-Date: 2018-08-26 23:44:02+00:00\n"
-"PO-Revision-Date: 2018-08-27 02:55+0300\n"
+"POT-Creation-Date: 2018-08-27 13:36:22+00:00\n"
+"PO-Revision-Date: 2018-08-27 16:37+0300\n"
 "Last-Translator: Alexsander Vyshnyvetskyy <alex.vyshnyvetskyy@gmail.com>\n"
 "Language-Team: Alexsander Vyshnyvetskyy <alex.vyshnyvetskyy@gmail.com>\n"
 "Language: ru\n"
@@ -22,49 +22,57 @@ msgstr ""
 "X-Generator: Poedit 2.1.1\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: functions.php:43
+#: functions.php:39
 msgid "Header Sidebar"
 msgstr "Сайдбар в шапке"
 
-#: functions.php:53
-msgid "Right Sidebar"
-msgstr "Правый сайдбар"
-
-#: functions.php:62
+#: functions.php:51
 msgid "Left Sidebar"
 msgstr "Левый сайдбар"
 
-#: functions.php:71
+#: functions.php:63
+msgid "Right Sidebar"
+msgstr "Правый сайдбар"
+
+#: functions.php:75
 msgid "Before Content"
 msgstr "Перед контентом"
 
-#: functions.php:80
+#: functions.php:87
 msgid "After Content"
 msgstr "После контента"
 
-#: functions.php:89
+#: functions.php:99
 msgid "Footer Sidebar"
 msgstr "Сайдбар в футере"
 
-#: functions.php:104
+#: functions.php:115
 msgid "Top Menu"
 msgstr "Верхнее меню"
 
-#: functions.php:105
+#: functions.php:118
 msgid "Main Menu"
 msgstr "Главное меню"
 
-#: functions.php:106
+#: functions.php:121
 msgid "Left Sidebar Menu"
 msgstr "Меню в левом сайдбаре"
 
-#: functions.php:107
+#: functions.php:124
 msgid "Right Sidebar Menu"
 msgstr "Меню в правом сайдбаре"
 
-#: functions.php:108
+#: functions.php:127
 msgid "Footer Menu"
 msgstr "Меню в футере"
+
+#: theme-options.php:56
+msgid "WP Bootstrap Theme options"
+msgstr "Настройки темы WP Bootstrap"
+
+#: theme-options.php:57
+msgid "Theme options"
+msgstr "Настройки темы"
 
 #. Theme Name of the plugin/theme
 msgid "WP Bootstrap"
