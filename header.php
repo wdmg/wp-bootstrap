@@ -33,7 +33,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="profile" href="http://gmpg.org/xfn/11">
         <meta http-equiv="content-language" content="<?php bloginfo('language'); ?>">
-		<?php echo get_option('header_code') ? get_option('header_code') : '<!-- header_code -->'."\r\n"; ?>
         <?php wp_head(); ?>
     </head>
 	<body <?php body_class(); ?> role="document">
+		<header>
+
+		</header>
