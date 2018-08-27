@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Bootstrap 1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/wp-bootstrap\n"
-"POT-Creation-Date: 2018-08-27 13:36:22+00:00\n"
-"PO-Revision-Date: 2018-08-27 16:38+0300\n"
+"POT-Creation-Date: 2018-08-27 13:52:38+00:00\n"
+"PO-Revision-Date: 2018-08-27 16:57+0300\n"
 "Last-Translator: Alexsander Vyshnyvetskyy <alex.vyshnyvetskyy@gmail.com>\n"
 "Language-Team: Alexsander Vyshnyvetskyy <alex.vyshnyvetskyy@gmail.com>\n"
 "Language: ru\n"
@@ -66,13 +66,45 @@ msgstr "Меню в правом сайдбаре"
 msgid "Footer Menu"
 msgstr "Меню в футере"
 
-#: theme-options.php:56
+#: theme-options.php:59
 msgid "WP Bootstrap Theme options"
 msgstr "Опции темы WP Bootstrap"
 
-#: theme-options.php:57
+#: theme-options.php:60
 msgid "Theme options"
 msgstr "Опции темы"
+
+#: theme-options.php:70
+msgid "Head & Body options"
+msgstr "Опции head & body"
+
+#: theme-options.php:71
+msgid "Head & Body"
+msgstr "Head & Body"
+
+#: theme-options.php:79
+msgid "Sidebar & Menu options"
+msgstr "Опции сайдбар и меню"
+
+#: theme-options.php:80
+msgid "Sidebar & Menu"
+msgstr "Сайдбар и меню"
+
+#: theme-options.php:88
+msgid "BackUp & Restore options"
+msgstr "Опции бэкапа и восстановление"
+
+#: theme-options.php:89
+msgid "BackUp & Restore"
+msgstr "Бэкап и восстановление"
+
+#: theme-options.php:97
+msgid "Credits theme"
+msgstr "Информация о теме"
+
+#: theme-options.php:98
+msgid "Credits"
+msgstr "О теме"
 
 #. Theme Name of the plugin/theme
 msgid "WP Bootstrap"
@@ -93,9 +125,6 @@ msgstr "Александр Вишнивецкий"
 #. Author URI of the plugin/theme
 msgid "http://vyshnyvetskyy.com/"
 msgstr "http://vyshnyvetskyy.com/"
-
-#~ msgid "Sidebar Menu"
-#~ msgstr "Сайдбар меню"
 
 #~ msgid "Before Sidebar"
 #~ msgstr "Перед контентом"
