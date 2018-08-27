@@ -13,6 +13,7 @@ $developer_uri = "http://wdmg.com.ua/wp-bootstrap/";
 $author = "Alexsander Vyshnyvetskyy <alex.vyshnyvetskyy@gmail.com>";
 $shortname = "wp";
 $version = '1.0.0';
+$options = array();
 
 // Load theme languages
 function load_theme_langs() {

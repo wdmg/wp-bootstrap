@@ -16,6 +16,7 @@ function wp_bootstrap_options_callback() {
 		wp_die('You do not have sufficient permissions to access this page.');
 
 	$request = false;
+
 	if(isset($_REQUEST["action"])) {
 		$request['action'] = urldecode($_REQUEST['action']);
 	} else {
@@ -33,20 +34,40 @@ function wp_bootstrap_options_callback() {
 	echo '<hr/>';
 
 	if($request['action'] == 'save')
-		echo '<div class="notice notice-success inline wp-pp-notice"><p>Настройки темы <strong>'. $themename .'</strong> были успешно сохранены!</p></div>';
+		echo '<div class="notice notice-success inline wp-pp-notice"><p>'.__('The theme settings have been successfully saved.', 'wp-bootstrap').'</p></div>';
 
 	if($request['action'] == 'reset')
-		echo '<div class="notice notice-error inline wp-pp-notice"><p>Настройки темы <strong>'. $themename .'</strong> были сброшены!</p></div>';
+		echo '<div class="notice notice-error inline wp-pp-notice"><p>'.__('The theme settings have been reset.', 'wp-bootstrap').'</p></div>';
 
 	if($request['action'] == 'restore')
-		echo '<div class="notice notice-warning inline wp-pp-notice"><p>Настройки темы <strong>'. $themename .'</strong> были восстановлены!</p></div>';
+		echo '<div class="notice notice-warning inline wp-pp-notice"><p>'.__('The theme settings were successfully restored.', 'wp-bootstrap').'</p></div>';
 
 	// Theme options functionality
 	if($request['section'] == 'head-body-options') {
 
+		echo '<form method="POST" action="options.php">';
+		settings_fields('wp-bootstrap-head-body-options');
+		do_settings_sections('head-body-options');
+		submit_button();
+		echo '</form>';
+
 	} else if($request['section'] == 'sidebar-menu-options') {
 
+		echo '<form method="POST" action="options.php">';
+		settings_fields('wp-bootstrap-sidebar-menu-options');
+		do_settings_sections('sidebar-menu-options');
+		submit_button();
+		echo '</form>';
+
 	} else if($request['section'] == 'backup-restore-options') {
+
+		echo '<form method="POST" action="options.php">';
+		settings_fields('wp-bootstrap-backup-restore-options');
+		do_settings_sections('backup-restore-options');
+		submit_button(__('Download backup', 'wp-bootstrap'), 'secondary button-hero install-now', '', false, array('onclick' => "this.form.action='/download/theme-backup.json'"));
+		echo '&nbsp;&nbsp;';
+		submit_button(__('Import backup', 'wp-bootstrap'), 'primary button-hero install-now', '', false, array('onclick' => "this.form.action='/wp-admin/admin.php?page=backup-restore-options'"));
+		echo '</form>';
 
 	} else if($request['section'] == 'theme-credits') {
 
@@ -57,30 +78,244 @@ function wp_bootstrap_options_callback() {
 	echo '</div>';
 }
 
+// Register settings overlay function
+function register_settings($slug, $name) {
+	global $options;
+	if($name)
+		array_push($options, $name);
+
+	register_setting($slug, $name);
+}
+
+// Generate BackUp code function
+function get_backup_code() {
+	global $options;
+	$export = wp_load_alloptions();
+	$filtered = array_filter(
+		$export,
+		function ($key) use ($options) {
+			return in_array($key, $options);
+		},
+		ARRAY_FILTER_USE_KEY
+	);
+	return serialize($filtered);
+}
+
+// Download backup options
+add_action('template_redirect', function() {
+	if ($_SERVER['REQUEST_URI'] == '/download/theme-backup.json') {
+		header('Content-disposition: attachment; filename=theme-backup.json');
+		header('Content-type: application/json');
+		header("Pragma: no-cache");
+		header("Expires: 0");
+		echo $_POST["backup_code"];
+		exit();
+	}
+});
+
 // Only admin actions
 if (is_admin()) {
-
 	// Add theme options
 	add_action('admin_init', function() {
 
 		// Global html-code for head/body section
-		register_setting('wp-bootstrap-options', 'header_code');
-		register_setting('wp-bootstrap-options', 'footer_code');
+		register_settings('wp-bootstrap-head-body-options', 'header_code');
+		register_settings('wp-bootstrap-head-body-options', 'footer_code');
 
 		// Register setting for sidebar`s visibility
-		register_setting('wp-bootstrap-options', 'header_sidebar');
-		register_setting('wp-bootstrap-options', 'left_sidebar');
-		register_setting('wp-bootstrap-options', 'right_sidebar');
-		register_setting('wp-bootstrap-options', 'before_content');
-		register_setting('wp-bootstrap-options', 'after_content');
-		register_setting('wp-bootstrap-options', 'footer_sidebar');
+		register_settings('wp-bootstrap-sidebar-menu-options', 'header_sidebar');
+		register_settings('wp-bootstrap-sidebar-menu-options', 'left_sidebar');
+		register_settings('wp-bootstrap-sidebar-menu-options', 'right_sidebar');
+		register_settings('wp-bootstrap-sidebar-menu-options', 'before_content');
+		register_settings('wp-bootstrap-sidebar-menu-options', 'after_content');
+		register_settings('wp-bootstrap-sidebar-menu-options', 'footer_sidebar');
 
 		// Register setting for menu`s visibility
-		register_setting('wp-bootstrap-options', 'top_menu');
-		register_setting('wp-bootstrap-options', 'main_menu');
-		register_setting('wp-bootstrap-options', 'left_sidebar_menu');
-		register_setting('wp-bootstrap-options', 'right_sidebar_menu');
-		register_setting('wp-bootstrap-options', 'footer_menu');
+		register_settings('wp-bootstrap-sidebar-menu-options', 'top_menu');
+		register_settings('wp-bootstrap-sidebar-menu-options', 'main_menu');
+		register_settings('wp-bootstrap-sidebar-menu-options', 'left_sidebar_menu');
+		register_settings('wp-bootstrap-sidebar-menu-options', 'right_sidebar_menu');
+		register_settings('wp-bootstrap-sidebar-menu-options', 'footer_menu');
+
+
+		// Head & Body options
+		add_settings_section(
+			'wp-bootstrap-head-body-options',
+			__('&lt;head&gt; &amp; &lt;body&gt;', 'wp-bootstrap'),
+			function() {
+				echo __('<p>Here you can specify special codes for counters, tracking scripts and meta tags.</p>', 'wp-bootstrap');
+			},
+			'head-body-options'
+		);
+		add_settings_field(
+			'header_code',
+			__('HTML-code before closing tag &lt;head&gt;', 'wp-bootstrap'),
+			function() {
+				echo '<textarea name="header_code" class="code">'.get_option('header_code').'</textarea>';
+			},
+			'head-body-options',
+			'wp-bootstrap-head-body-options'
+		);
+		add_settings_field(
+			'footer_code',
+			__('HTML-code before closing tag &lt;body&gt;', 'wp-bootstrap'),
+			function() {
+				echo '<textarea name="footer_code" class="code">'.get_option('footer_code').'</textarea>';
+			},
+			'head-body-options',
+			'wp-bootstrap-head-body-options'
+		);
+
+
+		// Sidebar visibility options
+		add_settings_section(
+			'wp-bootstrap-sidebar-options',
+			__('Sidebar visibility', 'wp-bootstrap'),
+			function() {
+				echo __('<p>You can activate/deactivate the sidebars of your theme, if necessary.</p>', 'wp-bootstrap');
+			},
+			'sidebar-menu-options'
+		);
+		add_settings_field(
+			'header_sidebar',
+			__('Display sidebar in the header', 'wp-bootstrap'),
+			function() {
+				echo '<input name="header_sidebar" type="checkbox" '.checked(1, get_option('header_sidebar'), false).' value="1" />';
+			},
+			'sidebar-menu-options',
+			'wp-bootstrap-sidebar-options'
+		);
+		add_settings_field(
+			'left_sidebar',
+			__('Display the left sidebar', 'wp-bootstrap'),
+			function() {
+				echo '<input name="left_sidebar" type="checkbox" '.checked(1, get_option('left_sidebar'), false).' value="1" />';
+			},
+			'sidebar-menu-options',
+			'wp-bootstrap-sidebar-options'
+		);
+		add_settings_field(
+			'right_sidebar',
+			__('Display the right sidebar', 'wp-bootstrap'),
+			function() {
+				echo '<input name="right_sidebar" type="checkbox" '.checked(1, get_option('right_sidebar'), false).' value="1" />';
+			},
+			'sidebar-menu-options',
+			'wp-bootstrap-sidebar-options'
+		);
+		add_settings_field(
+			'before_content',
+			__('Display sidebar before content', 'wp-bootstrap'),
+			function() {
+				echo '<input name="before_content" type="checkbox" '.checked(1, get_option('before_content'), false).' value="1" />';
+			},
+			'sidebar-menu-options',
+			'wp-bootstrap-sidebar-options'
+		);
+		add_settings_field(
+			'after_content',
+			__('Display sidebar after content', 'wp-bootstrap'),
+			function() {
+				echo '<input name="after_content" type="checkbox" '.checked(1, get_option('after_content'), false).' value="1" />';
+			},
+			'sidebar-menu-options',
+			'wp-bootstrap-sidebar-options'
+		);
+		add_settings_field(
+			'footer_sidebar',
+			__('Display sidebar in the footer', 'wp-bootstrap'),
+			function() {
+				echo '<input name="footer_sidebar" type="checkbox" '.checked(1, get_option('footer_sidebar'), false).' value="1" />';
+			},
+			'sidebar-menu-options',
+			'wp-bootstrap-sidebar-options'
+		);
+
+
+		// Menu visibility options
+		add_settings_section(
+			'wp-bootstrap-menu-options',
+			__('Menu visibility', 'wp-bootstrap'),
+			function() {
+				echo __('<p>You can activate/deactivate the menu locations of your theme, if necessary.</p>', 'wp-bootstrap');
+			},
+			'sidebar-menu-options'
+		);
+		add_settings_field(
+			'top_menu',
+			__('Display top menu in the header', 'wp-bootstrap'),
+			function() {
+				echo '<input name="top_menu" type="checkbox" '.checked(1, get_option('top_menu'), false).' value="1" />';
+			},
+			'sidebar-menu-options',
+			'wp-bootstrap-menu-options'
+		);
+		add_settings_field(
+			'main_menu',
+			__('Display main menu in the header', 'wp-bootstrap'),
+			function() {
+				echo '<input name="main_menu" type="checkbox" '.checked(1, get_option('main_menu'), false).' value="1" />';
+			},
+			'sidebar-menu-options',
+			'wp-bootstrap-menu-options'
+		);
+		add_settings_field(
+			'left_sidebar_menu',
+			__('Display menu in the left sidebar', 'wp-bootstrap'),
+			function() {
+				echo '<input name="left_sidebar_menu" type="checkbox" '.checked(1, get_option('left_sidebar_menu'), false).' value="1" />';
+			},
+			'sidebar-menu-options',
+			'wp-bootstrap-menu-options'
+		);
+		add_settings_field(
+			'right_sidebar_menu',
+			__('Display menu in the right sidebar', 'wp-bootstrap'),
+			function() {
+				echo '<input name="right_sidebar_menu" type="checkbox" '.checked(1, get_option('right_sidebar_menu'), false).' value="1" />';
+			},
+			'sidebar-menu-options',
+			'wp-bootstrap-menu-options'
+		);
+		add_settings_field(
+			'footer_menu',
+			__('Display menu in the footer sidebar', 'wp-bootstrap'),
+			function() {
+				echo '<input name="footer_menu" type="checkbox" '.checked(1, get_option('footer_menu'), false).' value="1" />';
+			},
+			'sidebar-menu-options',
+			'wp-bootstrap-menu-options'
+		);
+
+
+		// Menu visibility options
+		add_settings_section(
+			'wp-bootstrap-backup-restore-options',
+			__('Backup Export/Import settings', 'wp-bootstrap'),
+			function() {
+				echo __('<p>Here you can export the backup settings to the theme or download such settings from the backup file or by inserting the field below.</p>', 'wp-bootstrap');
+			},
+			'backup-restore-options'
+		);
+		add_settings_field(
+			'backup_code',
+			__('Export a backup copy of the settings', 'wp-bootstrap'),
+			function() {
+				echo '<textarea name="backup_code" readonly="readonly" class="code">'.get_backup_code().'</textarea>';
+			},
+			'backup-restore-options',
+			'wp-bootstrap-backup-restore-options'
+		);
+		add_settings_field(
+			'import_code',
+			__('Import a backup copy of the settings', 'wp-bootstrap'),
+			function() {
+				echo '<textarea name="import_code" class="code"></textarea>';
+			},
+			'backup-restore-options',
+			'wp-bootstrap-backup-restore-options'
+		);
+
 
 	});
 
@@ -127,11 +362,10 @@ if (is_admin()) {
 			'theme-credits',
 			'wp_bootstrap_options_callback'
 		);
+
     });
 
 }
-
-
 
 
 ?>

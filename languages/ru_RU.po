@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Bootstrap 1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/wp-bootstrap\n"
-"POT-Creation-Date: 2018-08-27 15:17:43+00:00\n"
-"PO-Revision-Date: 2018-08-27 18:18+0300\n"
+"POT-Creation-Date: 2018-08-27 19:47:49+00:00\n"
+"PO-Revision-Date: 2018-08-27 22:55+0300\n"
 "Last-Translator: Alexsander Vyshnyvetskyy <alex.vyshnyvetskyy@gmail.com>\n"
 "Language-Team: Alexsander Vyshnyvetskyy <alex.vyshnyvetskyy@gmail.com>\n"
 "Language: ru\n"
@@ -22,87 +22,211 @@ msgstr ""
 "X-Generator: Poedit 2.1.1\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: functions.php:39
+#: functions.php:40
 msgid "Header Sidebar"
 msgstr "Сайдбар в шапке"
 
-#: functions.php:51
+#: functions.php:52
 msgid "Left Sidebar"
 msgstr "Левый сайдбар"
 
-#: functions.php:63
+#: functions.php:64
 msgid "Right Sidebar"
 msgstr "Правый сайдбар"
 
-#: functions.php:75
+#: functions.php:76
 msgid "Before Content"
 msgstr "Перед контентом"
 
-#: functions.php:87
+#: functions.php:88
 msgid "After Content"
 msgstr "После контента"
 
-#: functions.php:99
+#: functions.php:100
 msgid "Footer Sidebar"
 msgstr "Сайдбар в футере"
 
-#: functions.php:115
+#: functions.php:116
 msgid "Top Menu"
 msgstr "Верхнее меню"
 
-#: functions.php:118
+#: functions.php:119
 msgid "Main Menu"
 msgstr "Главное меню"
 
-#: functions.php:121
+#: functions.php:122
 msgid "Left Sidebar Menu"
 msgstr "Меню в левом сайдбаре"
 
-#: functions.php:124
+#: functions.php:125
 msgid "Right Sidebar Menu"
 msgstr "Меню в правом сайдбаре"
 
-#: functions.php:127
+#: functions.php:128
 msgid "Footer Menu"
 msgstr "Меню в футере"
 
-#: theme-options.php:90
-msgid "WP Bootstrap Theme options"
-msgstr "Опции темы WP Bootstrap"
+#: theme-options.php:37
+msgid "The theme settings have been successfully saved."
+msgstr "Настройки темы были успешно сохранены."
 
-#: theme-options.php:91
-msgid "Theme options"
-msgstr "Опции темы"
+#: theme-options.php:40
+msgid "The theme settings have been reset."
+msgstr "Настройки темы были сброшены."
 
-#: theme-options.php:100
-msgid "Head &amp; Body options"
-msgstr "Опции head & body"
+#: theme-options.php:43
+msgid "The theme settings were successfully restored."
+msgstr "Настройки темы были успешно восстановлены."
 
-#: theme-options.php:101
+#: theme-options.php:67
+msgid "Download backup"
+msgstr "Скачать бэкап"
+
+#: theme-options.php:69
+msgid "Import backup"
+msgstr "Импорт бэкапа"
+
+#: theme-options.php:144 theme-options.php:336
 msgid "&lt;head&gt; &amp; &lt;body&gt;"
 msgstr "&lt;head&gt; &amp; &lt;body&gt;"
 
-#: theme-options.php:108
+#: theme-options.php:146
+msgid ""
+"<p>Here you can specify special codes for counters, tracking scripts and "
+"meta tags.</p>"
+msgstr ""
+"<p>Здесь вы можете указать специальные коды для счетчиков, скриптов "
+"отслеживания и мета-тегов.</p>"
+
+#: theme-options.php:152
+msgid "HTML-code before closing tag &lt;head&gt;"
+msgstr "HTML-код перед закрывающим тегом &lt;head&gt;"
+
+#: theme-options.php:161
+msgid "HTML-code before closing tag &lt;body&gt;"
+msgstr "HTML-код перед закрывающим тегом &lt;body&gt;"
+
+#: theme-options.php:173
+msgid "Sidebar visibility"
+msgstr "Видимость сайдбара"
+
+#: theme-options.php:175
+msgid ""
+"<p>You can activate/deactivate the sidebars of your theme, if necessary.</p>"
+msgstr ""
+"<p>При необходимости вы можете активировать/деактивировать боковые панели "
+"вашей темы.</p>"
+
+#: theme-options.php:181
+msgid "Display sidebar in the header"
+msgstr "Отображать сайдбар в шапке"
+
+#: theme-options.php:190
+msgid "Display the left sidebar"
+msgstr "Отображать левый сайдбар"
+
+#: theme-options.php:199
+msgid "Display the right sidebar"
+msgstr "Отображать правый сайдбар"
+
+#: theme-options.php:208
+msgid "Display sidebar before content"
+msgstr "Отображать сайдбар перед контентом"
+
+#: theme-options.php:217
+msgid "Display sidebar after content"
+msgstr "Отображать сайдбар после контентом"
+
+#: theme-options.php:226
+msgid "Display sidebar in the footer"
+msgstr "Отображать сайдбар в футере"
+
+#: theme-options.php:238
+msgid "Menu visibility"
+msgstr "Видимость меню"
+
+#: theme-options.php:240
+msgid ""
+"<p>You can activate/deactivate the menu locations of your theme, if "
+"necessary.</p>"
+msgstr ""
+"<p>При необходимости вы можете активировать/деактивировать пункты меню "
+"вашей темы.</p>"
+
+#: theme-options.php:246
+msgid "Display top menu in the header"
+msgstr "Отображать верхнее меню в шапке"
+
+#: theme-options.php:255
+msgid "Display main menu in the header"
+msgstr "Отображать главное меню в шапке"
+
+#: theme-options.php:264
+msgid "Display menu in the left sidebar"
+msgstr "Отображать меню в левом сайдбаре"
+
+#: theme-options.php:273
+msgid "Display menu in the right sidebar"
+msgstr "Отображать меню в правом сайдбаре"
+
+#: theme-options.php:282
+msgid "Display menu in the footer sidebar"
+msgstr "Отображать меню в футере"
+
+#: theme-options.php:294
+msgid "Backup Export/Import settings"
+msgstr "Параметры резервного копирования и импорта резервных копий"
+
+#: theme-options.php:296
+msgid ""
+"<p>Here you can export the backup settings to the theme or download such "
+"settings from the backup file or by inserting the field below.</p>"
+msgstr ""
+"<p>Здесь вы можете экспортировать резервную копию настроек темы или "
+"загрузить такие настройки из файла резервной копии или вставив в поле ниже."
+"</p>"
+
+#: theme-options.php:302
+msgid "Export a backup copy of the settings"
+msgstr "Экспорт резервной копии настроек"
+
+#: theme-options.php:311
+msgid "Import a backup copy of the settings"
+msgstr "Импортировать резервную копию настроек"
+
+#: theme-options.php:325
+msgid "WP Bootstrap Theme options"
+msgstr "Опции темы WP Bootstrap"
+
+#: theme-options.php:326
+msgid "Theme options"
+msgstr "Опции темы"
+
+#: theme-options.php:335
+msgid "Head &amp; Body options"
+msgstr "Опции head & body"
+
+#: theme-options.php:343
 msgid "Sidebar &amp; Menu options"
 msgstr "Опции сайдбар и меню"
 
-#: theme-options.php:109
+#: theme-options.php:344
 msgid "Sidebar &amp; Menu"
 msgstr "Сайдбар и меню"
 
-#: theme-options.php:116
+#: theme-options.php:351
 msgid "BackUp &amp; Restore options"
 msgstr "Опции бэкапа и восстановление"
 
-#: theme-options.php:117
+#: theme-options.php:352
 msgid "BackUp &amp; Restore"
 msgstr "Бэкап и восстановление"
 
-#: theme-options.php:124
+#: theme-options.php:359
 msgid "Credits theme"
 msgstr "Информация о теме"
 
-#: theme-options.php:125
+#: theme-options.php:360
 msgid "Credits"
 msgstr "О теме"
 
