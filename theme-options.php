@@ -8,7 +8,7 @@
  * @version 1.0
  */
 
-
+// Manage theme options page
 function wp_bootstrap_options() {
 
 	global $themename, $shortname, $options;
