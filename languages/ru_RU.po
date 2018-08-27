@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: WP Bootstrap 1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/wp-bootstrap\n"
 "POT-Creation-Date: 2018-08-27 13:36:22+00:00\n"
-"PO-Revision-Date: 2018-08-27 16:37+0300\n"
+"PO-Revision-Date: 2018-08-27 16:38+0300\n"
 "Last-Translator: Alexsander Vyshnyvetskyy <alex.vyshnyvetskyy@gmail.com>\n"
 "Language-Team: Alexsander Vyshnyvetskyy <alex.vyshnyvetskyy@gmail.com>\n"
 "Language: ru\n"
@@ -68,11 +68,11 @@ msgstr "Меню в футере"
 
 #: theme-options.php:56
 msgid "WP Bootstrap Theme options"
-msgstr "Настройки темы WP Bootstrap"
+msgstr "Опции темы WP Bootstrap"
 
 #: theme-options.php:57
 msgid "Theme options"
-msgstr "Настройки темы"
+msgstr "Опции темы"
 
 #. Theme Name of the plugin/theme
 msgid "WP Bootstrap"
