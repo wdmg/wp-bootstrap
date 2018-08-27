@@ -28,6 +28,8 @@ function wp_bootstrap_options() {
 
 // Only admin actions
 if (is_admin()) {
+
+	// Add theme options
 	add_action('admin_init', function() {
 
 		// Global html-code for head/body section
@@ -51,6 +53,7 @@ if (is_admin()) {
 
 	});
 
+	// Add admin menu for theme options
 	add_action('admin_menu', function() {
 		add_menu_page(
 			__('WP Bootstrap Theme options', 'wp-bootstrap'),
