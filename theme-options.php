@@ -150,16 +150,16 @@ if (is_admin()) {
 			'wp-bootstrap-enqueue-options',
 			__('Enqueue scripts and css', 'wp-bootstrap'),
 			function() {
-				echo __('<p>Here you can connect your scripts and stylesheet files.</p>', 'wp-bootstrap');
+				echo __('<p>Here you can connect your scripts and stylesheet files. You can specify both absolute and relative URLs.</p>', 'wp-bootstrap');
 			},
 			'head-body-options'
 		);
 		for ($i=1; $i <= 10; $i++) {
 			add_settings_field(
 				'enqueue_css_'.$i,
-				__('Enqueue custom stylesheet ('.$i.')', 'wp-bootstrap'),
+				sprintf(esc_html__('Theme stylesheet path [%d]', 'wp-bootstrap'), $i),
 				function() use ($i) {
-					echo '<input name="enqueue_css_'.$i.'" class="code" value="'.get_option('enqueue_css_'.$i).'" />';
+					echo '<input name="enqueue_css_'.$i.'" class="regular-text" value="'.get_option('enqueue_css_'.$i).'" />';
 				},
 				'head-body-options',
 				'wp-bootstrap-enqueue-options'
@@ -169,9 +169,9 @@ if (is_admin()) {
 		for ($i=1; $i <= 10; $i++) {
 			add_settings_field(
 				'enqueue_js_'.$i,
-				__('Enqueue custom javascript ('.$i.')', 'wp-bootstrap'),
+				sprintf(esc_html__('Theme javascript path [%d]', 'wp-bootstrap'), $i),
 				function() use ($i) {
-					echo '<input name="enqueue_js_'.$i.'" class="code" value="'.get_option('enqueue_js_'.$i).'" />';
+					echo '<input name="enqueue_js_'.$i.'" class="regular-text" value="'.get_option('enqueue_js_'.$i).'" />';
 				},
 				'head-body-options',
 				'wp-bootstrap-enqueue-options'
@@ -193,7 +193,7 @@ if (is_admin()) {
 			'header_code',
 			__('HTML-code before closing tag &lt;head&gt;', 'wp-bootstrap'),
 			function() {
-				echo '<textarea name="header_code" class="code">'.get_option('header_code').'</textarea>';
+				echo '<textarea name="header_code" class="regular-text">'.get_option('header_code').'</textarea>';
 			},
 			'head-body-options',
 			'wp-bootstrap-head-body-options'
@@ -202,7 +202,7 @@ if (is_admin()) {
 			'footer_code',
 			__('HTML-code before closing tag &lt;body&gt;', 'wp-bootstrap'),
 			function() {
-				echo '<textarea name="footer_code" class="code">'.get_option('footer_code').'</textarea>';
+				echo '<textarea name="footer_code" class="regular-text">'.get_option('footer_code').'</textarea>';
 			},
 			'head-body-options',
 			'wp-bootstrap-head-body-options'
@@ -352,7 +352,7 @@ if (is_admin()) {
 			'backup_code',
 			__('Export a backup copy of the settings', 'wp-bootstrap'),
 			function() {
-				echo '<textarea name="backup_code" readonly="readonly" class="code">'.get_backup_code().'</textarea>';
+				echo '<textarea name="backup_code" readonly="readonly" class="regular-text">'.get_backup_code().'</textarea>';
 			},
 			'backup-restore-options',
 			'wp-bootstrap-backup-restore-options'
@@ -361,7 +361,7 @@ if (is_admin()) {
 			'import_code',
 			__('Import a backup copy of the settings', 'wp-bootstrap'),
 			function() {
-				echo '<textarea name="import_code" class="code"></textarea>';
+				echo '<textarea name="import_code" class="regular-text"></textarea>';
 			},
 			'backup-restore-options',
 			'wp-bootstrap-backup-restore-options'

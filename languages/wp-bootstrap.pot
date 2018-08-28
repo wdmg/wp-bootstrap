@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Bootstrap 1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/wp-bootstrap\n"
-"POT-Creation-Date: 2018-08-28 08:03:02+00:00\n"
+"POT-Creation-Date: 2018-08-28 14:08:07+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,47 +25,47 @@ msgstr ""
 "X-Poedit-Language: Russian\n"
 "X-Generator: grunt-wp-i18n1.0.2\n"
 
-#: functions.php:54
+#: functions.php:72
 msgid "Header Sidebar"
 msgstr ""
 
-#: functions.php:66
+#: functions.php:84
 msgid "Left Sidebar"
 msgstr ""
 
-#: functions.php:78
+#: functions.php:96
 msgid "Right Sidebar"
 msgstr ""
 
-#: functions.php:90
+#: functions.php:108
 msgid "Before Content"
 msgstr ""
 
-#: functions.php:102
+#: functions.php:120
 msgid "After Content"
 msgstr ""
 
-#: functions.php:114
+#: functions.php:132
 msgid "Footer Sidebar"
 msgstr ""
 
-#: functions.php:130
+#: functions.php:148
 msgid "Top Menu"
 msgstr ""
 
-#: functions.php:133
+#: functions.php:151
 msgid "Main Menu"
 msgstr ""
 
-#: functions.php:136
+#: functions.php:154
 msgid "Left Sidebar Menu"
 msgstr ""
 
-#: functions.php:139
+#: functions.php:157
 msgid "Right Sidebar Menu"
 msgstr ""
 
-#: functions.php:142
+#: functions.php:160
 msgid "Footer Menu"
 msgstr ""
 
@@ -89,141 +89,159 @@ msgstr ""
 msgid "Import backup"
 msgstr ""
 
-#: theme-options.php:145 theme-options.php:346
+#: theme-options.php:151
+msgid "Enqueue scripts and css"
+msgstr ""
+
+#: theme-options.php:153
+msgid ""
+"<p>Here you can connect your scripts and stylesheet files. You can specify "
+"both absolute and relative URLs.</p>"
+msgstr ""
+
+#: theme-options.php:160
+msgid "Theme stylesheet path [%d]"
+msgstr ""
+
+#: theme-options.php:172
+msgid "Theme javascript path [%d]"
+msgstr ""
+
+#: theme-options.php:186 theme-options.php:387
 msgid "&lt;head&gt; &amp; &lt;body&gt;"
 msgstr ""
 
-#: theme-options.php:147
+#: theme-options.php:188
 msgid ""
 "<p>Here you can specify special codes for counters, tracking scripts and "
 "meta tags.</p>"
 msgstr ""
 
-#: theme-options.php:153
+#: theme-options.php:194
 msgid "HTML-code before closing tag &lt;head&gt;"
 msgstr ""
 
-#: theme-options.php:162
+#: theme-options.php:203
 msgid "HTML-code before closing tag &lt;body&gt;"
 msgstr ""
 
-#: theme-options.php:174
+#: theme-options.php:215
 msgid "Sidebar visibility"
 msgstr ""
 
-#: theme-options.php:176
+#: theme-options.php:217
 msgid "<p>You can activate/deactivate the sidebars of your theme, if necessary.</p>"
 msgstr ""
 
-#: theme-options.php:182
+#: theme-options.php:223
 msgid "Display top sidebar in the header"
 msgstr ""
 
-#: theme-options.php:191
+#: theme-options.php:232
 msgid "Display sidebar in the header"
 msgstr ""
 
-#: theme-options.php:200
+#: theme-options.php:241
 msgid "Display the left sidebar"
 msgstr ""
 
-#: theme-options.php:209
+#: theme-options.php:250
 msgid "Display the right sidebar"
 msgstr ""
 
-#: theme-options.php:218
+#: theme-options.php:259
 msgid "Display sidebar before content"
 msgstr ""
 
-#: theme-options.php:227
+#: theme-options.php:268
 msgid "Display sidebar after content"
 msgstr ""
 
-#: theme-options.php:236
+#: theme-options.php:277
 msgid "Display sidebar in the footer"
 msgstr ""
 
-#: theme-options.php:248
+#: theme-options.php:289
 msgid "Menu visibility"
 msgstr ""
 
-#: theme-options.php:250
+#: theme-options.php:291
 msgid ""
 "<p>You can activate/deactivate the menu locations of your theme, if "
 "necessary.</p>"
 msgstr ""
 
-#: theme-options.php:256
+#: theme-options.php:297
 msgid "Display top menu in the header"
 msgstr ""
 
-#: theme-options.php:265
+#: theme-options.php:306
 msgid "Display main menu in the header"
 msgstr ""
 
-#: theme-options.php:274
+#: theme-options.php:315
 msgid "Display menu in the left sidebar"
 msgstr ""
 
-#: theme-options.php:283
+#: theme-options.php:324
 msgid "Display menu in the right sidebar"
 msgstr ""
 
-#: theme-options.php:292
+#: theme-options.php:333
 msgid "Display menu in the footer sidebar"
 msgstr ""
 
-#: theme-options.php:304
+#: theme-options.php:345
 msgid "Backup Export/Import settings"
 msgstr ""
 
-#: theme-options.php:306
+#: theme-options.php:347
 msgid ""
 "<p>Here you can export the backup settings to the theme or download such "
 "settings from the backup file or by inserting the field below.</p>"
 msgstr ""
 
-#: theme-options.php:312
+#: theme-options.php:353
 msgid "Export a backup copy of the settings"
 msgstr ""
 
-#: theme-options.php:321
+#: theme-options.php:362
 msgid "Import a backup copy of the settings"
 msgstr ""
 
-#: theme-options.php:335
+#: theme-options.php:376
 msgid "WP Bootstrap Theme options"
 msgstr ""
 
-#: theme-options.php:336
+#: theme-options.php:377
 msgid "Theme options"
 msgstr ""
 
-#: theme-options.php:345
+#: theme-options.php:386
 msgid "Head &amp; Body options"
 msgstr ""
 
-#: theme-options.php:353
+#: theme-options.php:394
 msgid "Sidebar &amp; Menu options"
 msgstr ""
 
-#: theme-options.php:354
+#: theme-options.php:395
 msgid "Sidebar &amp; Menu"
 msgstr ""
 
-#: theme-options.php:361
+#: theme-options.php:402
 msgid "BackUp &amp; Restore options"
 msgstr ""
 
-#: theme-options.php:362
+#: theme-options.php:403
 msgid "BackUp &amp; Restore"
 msgstr ""
 
-#: theme-options.php:369
+#: theme-options.php:410
 msgid "Credits theme"
 msgstr ""
 
-#: theme-options.php:370
+#: theme-options.php:411
 msgid "Credits"
 msgstr ""
 
