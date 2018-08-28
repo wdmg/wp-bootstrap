@@ -149,7 +149,7 @@ add_action('widgets_init', function() {
 			register_sidebar(
 				array(
 					'name' => sprintf(esc_html__('Footer Sidebar %d', 'wp-bootstrap'), $i),
-					'id' => 'footer_sidebar_'.$i,
+					'id' => 'footer-sidebar-'.$i,
 					'before_widget' => '',
 					'after_widget' => '',
 					'before_title' => '',

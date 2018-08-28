@@ -135,10 +135,9 @@ if (is_admin()) {
 		register_settings('wp-bootstrap-sidebar-menu-options', 'right_sidebar');
 		register_settings('wp-bootstrap-sidebar-menu-options', 'before_content');
 		register_settings('wp-bootstrap-sidebar-menu-options', 'after_content');
-		register_settings('wp-bootstrap-sidebar-menu-options', 'footer_sidebar');
-		register_settings('wp-bootstrap-sidebar-menu-options', 'footer_sidebar_2');
-		register_settings('wp-bootstrap-sidebar-menu-options', 'footer_sidebar_3');
-		register_settings('wp-bootstrap-sidebar-menu-options', 'footer_sidebar_4');
+		for ($i=1; $i <= 4; $i++) {
+			register_settings('wp-bootstrap-sidebar-menu-options', 'footer_sidebar_'.$i);
+		}
 
 		// Register setting for menu`s visibility
 		register_settings('wp-bootstrap-sidebar-menu-options', 'top_menu');
@@ -279,7 +278,7 @@ if (is_admin()) {
 				'footer_sidebar_'.$i,
 				sprintf(esc_html__('Display sidebar in the footer [%d]', 'wp-bootstrap'), $i),
 				function() use ($i) {
-					echo '<input name="footer_sidebar" type="checkbox" '.checked(1, get_option('footer_sidebar_'.$i), false).' value="1" />';
+					echo '<input name="footer_sidebar_'.$i.'" type="checkbox" '.checked(1, get_option('footer_sidebar_'.$i), false).' value="1" />';
 				},
 				'sidebar-menu-options',
 				'wp-bootstrap-sidebar-options'
