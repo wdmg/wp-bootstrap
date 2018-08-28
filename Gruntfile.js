@@ -13,12 +13,105 @@ module.exports = function(grunt) {
 			lang: 'languages',
 		},
         concat: {
-
+			jquery: {
+				src: [
+					'node_modules/jquery/dist/jquery.js'
+				],
+				dest: 'assets/js/jquery.js'
+			},
+			helper: {
+				src: [
+					'node_modules/jquery-helper/jquery.helper.js',
+					'node_modules/jquery-helper/jquery.touch.js'
+				],
+				dest: 'assets/js/helper.js'
+			},
+			popper: {
+				src: [
+					'node_modules/popper.js/dist/umd/popper.js'
+				],
+				dest: 'assets/js/popper.js'
+			},
+			bootstrap: {
+				src: [
+					'node_modules/bootstrap/dist/js/bootstrap.js'
+				],
+				dest: 'assets/js/bootstrap.js'
+			},
+			lightbox: {
+				src: [
+					'node_modules/ekko-lightbox/dist/ekko-lightbox.js'
+				],
+				dest: 'assets/js/lightbox.js'
+			}
         },
 		copy: {
+			bootstrap: {
+				files: [
+					{
+						expand: true,
+						cwd: 'node_modules/bootstrap/scss',
+						src: ['**'],
+						dest: 'assets/scss',
+						filter: 'isFile'
+					},
+					{
+						expand: true,
+						cwd: 'node_modules/bootstrap/scss',
+						src: 'mixins/*.scss',
+						dest: 'assets/scss',
+						filter: 'isFile'
+					}
+				]
+			},
 
         },
         uglify: {
+            jquery: {
+                options: {
+                    sourceMap: true,
+                    sourceMapName: 'assets/js/jquery.js.map'
+                },
+                files: {
+                    'assets/js/jquery.min.js': ['assets/js/jquery.js']
+                }
+            },
+            helper: {
+                options: {
+                    sourceMap: true,
+                    sourceMapName: 'assets/js/helper.js.map'
+                },
+                files: {
+                    'assets/js/helper.min.js': ['assets/js/helper.js']
+                }
+            },
+            popper: {
+                options: {
+                    sourceMap: true,
+                    sourceMapName: 'assets/js/popper.js.map'
+                },
+                files: {
+                    'assets/js/popper.min.js': ['assets/js/popper.js']
+                }
+            },
+            bootstrap: {
+                options: {
+                    sourceMap: true,
+                    sourceMapName: 'assets/js/bootstrap.js.map'
+                },
+                files: {
+                    'assets/js/bootstrap.min.js': ['assets/js/bootstrap.js']
+                }
+            },
+            lightbox: {
+                options: {
+                    sourceMap: true,
+                    sourceMapName: 'assets/js/ekko-lightbox.js.map'
+                },
+                files: {
+                    'assets/js/lightbox.min.js': ['assets/js/lightbox.js']
+                }
+            },
             admin: {
                 options: {
                     sourceMap: true,
@@ -146,5 +239,5 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-potomo');
 	grunt.loadNpmTasks('grunt-wp-i18n');
 	grunt.registerTask('translate', ['makepot', 'potomo']);
-    grunt.registerTask('default', ['uglify', 'makepot', 'sass', 'autoprefixer', 'cssmin']);
+    grunt.registerTask('default', ['concat', 'copy', 'uglify', 'makepot', 'sass', 'autoprefixer', 'cssmin']);
 };
