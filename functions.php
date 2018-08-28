@@ -22,7 +22,6 @@ add_action('after_setup_theme', function() {
 });
 
 // Include custom navigation walker
-//require_once('inc/nav-walker.php');
 include 'inc/nav-walker.php';
 
 // Include theme-options.php for admin theme settings
@@ -145,17 +144,19 @@ add_action('widgets_init', function() {
 			)
 		);
 	}
-	if(get_option('footer_sidebar')) {
-		register_sidebar(
-			array(
-				'name' => __('Footer Sidebar', 'wp-bootstrap'),
-				'id' => 'footer-sidebar',
-				'before_widget' => '',
-				'after_widget' => '',
-				'before_title' => '',
-				'after_title' => '',
-			)
-		);
+	for ($i=1; $i <= 4; $i++) {
+		if(get_option('footer_sidebar_'.$i)) {
+			register_sidebar(
+				array(
+					'name' => sprintf(esc_html__('Footer Sidebar %d', 'wp-bootstrap'), $i),
+					'id' => 'footer_sidebar_'.$i,
+					'before_widget' => '',
+					'after_widget' => '',
+					'before_title' => '',
+					'after_title' => '',
+				)
+			);
+		}
 	}
 });
 

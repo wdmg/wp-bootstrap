@@ -136,6 +136,9 @@ if (is_admin()) {
 		register_settings('wp-bootstrap-sidebar-menu-options', 'before_content');
 		register_settings('wp-bootstrap-sidebar-menu-options', 'after_content');
 		register_settings('wp-bootstrap-sidebar-menu-options', 'footer_sidebar');
+		register_settings('wp-bootstrap-sidebar-menu-options', 'footer_sidebar_2');
+		register_settings('wp-bootstrap-sidebar-menu-options', 'footer_sidebar_3');
+		register_settings('wp-bootstrap-sidebar-menu-options', 'footer_sidebar_4');
 
 		// Register setting for menu`s visibility
 		register_settings('wp-bootstrap-sidebar-menu-options', 'top_menu');
@@ -176,7 +179,6 @@ if (is_admin()) {
 				'head-body-options',
 				'wp-bootstrap-enqueue-options'
 			);
-
 		}
 
 
@@ -209,10 +211,10 @@ if (is_admin()) {
 		);
 
 
-		// Sidebar visibility options
+		// Sidebars visibility options
 		add_settings_section(
 			'wp-bootstrap-sidebar-options',
-			__('Sidebar visibility', 'wp-bootstrap'),
+			__('Sidebars visibility', 'wp-bootstrap'),
 			function() {
 				echo __('<p>You can activate/deactivate the sidebars of your theme, if necessary.</p>', 'wp-bootstrap');
 			},
@@ -272,16 +274,18 @@ if (is_admin()) {
 			'sidebar-menu-options',
 			'wp-bootstrap-sidebar-options'
 		);
-		add_settings_field(
-			'footer_sidebar',
-			__('Display sidebar in the footer', 'wp-bootstrap'),
-			function() {
-				echo '<input name="footer_sidebar" type="checkbox" '.checked(1, get_option('footer_sidebar'), false).' value="1" />';
-			},
-			'sidebar-menu-options',
-			'wp-bootstrap-sidebar-options'
-		);
-		
+		for ($i=1; $i <= 4; $i++) {
+			add_settings_field(
+				'footer_sidebar_'.$i,
+				sprintf(esc_html__('Display sidebar in the footer [%d]', 'wp-bootstrap'), $i),
+				function() use ($i) {
+					echo '<input name="footer_sidebar" type="checkbox" '.checked(1, get_option('footer_sidebar_'.$i), false).' value="1" />';
+				},
+				'sidebar-menu-options',
+				'wp-bootstrap-sidebar-options'
+			);
+		}
+
 
 		// Menu visibility options
 		add_settings_section(
@@ -391,8 +395,8 @@ if (is_admin()) {
 		);
 		add_submenu_page(
 			'theme-options',
-			__('Sidebar &amp; Menu options', 'wp-bootstrap'),
-			__('Sidebar &amp; Menu', 'wp-bootstrap'),
+			__('Sidebars &amp; Menu options', 'wp-bootstrap'),
+			__('Sidebars &amp; Menu', 'wp-bootstrap'),
 			'manage_options',
 			'sidebar-menu-options',
 			'wp_bootstrap_options_callback'
