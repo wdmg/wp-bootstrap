@@ -67,7 +67,6 @@
 				<div class="container">
 					<a class="navbar-brand mb-0 h1" href="<?php echo esc_url(home_url('/')); ?>" title="<?php bloginfo('description'); ?>">
 						<?php get_theme_logo(); ?>
-						<?php bloginfo('name'); ?>
 					</a>
 					<div class="collapse navbar-collapse" id="mainNavbar">
 						<?php if (get_option('main_menu') && has_nav_menu('main-menu')) : ?>

@@ -15,9 +15,15 @@ $shortname = "wp";
 $version = '1.0.0';
 $options = array();
 
-
 // Load theme languages
 add_action('after_setup_theme', function() {
+	global $wp_version;
+	if (version_compare($wp_version, '3.4', '>=')):
+		add_theme_support('custom-header');
+	else :
+		add_custom_image_header($wp_head_callback, $admin_head_callback);
+	endif;
+
 	load_theme_textdomain('wp-bootstrap', get_template_directory().'/languages');
 });
 
@@ -84,6 +90,16 @@ add_action('wp_footer', function() {
 	}
 }, 99);
 
+// Add support for custom flexible header
+add_theme_support('custom-header', array(
+	'default-image' => get_stylesheet_directory_uri().'/assets/images/logotype.svg',
+	'width' => 260,
+	'height' => 100,
+	'flex-width' => true,
+	'flex-height' => true,
+	'header-selector' => '.site-title a',
+	'header-text' => false
+));
 
 // Register Sidebar`s
 add_action('widgets_init', function() {
@@ -185,10 +201,12 @@ add_action('after_setup_theme', function() {
 	register_nav_menus($menu);
 });
 
+/*
 // Add other mime type for support
 add_filter('upload_mimes', function() {
 	$mimes['svg'] = 'image/svg+xml';
+	$mimes['svgz'] = 'image/svg+xml';
 	return $mimes;
 });
-
+*/
 ?>
