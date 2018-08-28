@@ -21,6 +21,9 @@ add_action('after_setup_theme', function() {
 	load_theme_textdomain('wp-bootstrap', get_template_directory().'/languages');
 });
 
+// Include custom navigation walker
+//require_once('inc/nav-walker.php');
+include 'inc/nav-walker.php';
 
 // Include theme-options.php for admin theme settings
 include 'theme-options.php';

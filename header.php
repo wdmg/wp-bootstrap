@@ -36,7 +36,7 @@
         <?php wp_head(); ?>
     </head>
 	<body <?php body_class(); ?> role="document">
-		<header class="fixed-top">
+		<header>
 			<?php if ((get_option('top_menu') && has_nav_menu('top-menu')) || (get_option('top_sidebar') && is_active_sidebar('top-sidebar'))) : ?>
 			<nav class="navbar navbar-dark bg-dark">
 				<div class="container">
@@ -65,11 +65,17 @@
 					</a>
 					<div class="collapse navbar-collapse" id="mainNavbar">
 						<?php if (get_option('main_menu') && has_nav_menu('main-menu')) : ?>
-						<?php wp_nav_menu(
-							array(
-								'theme_location' => 'main-menu'
-							)
-						); ?>
+
+						<?php wp_nav_menu( array(
+						  'theme_location' => 'main-menu',
+						  'container'      => false,
+						  'menu_class'     => 'nav navbar-nav',
+						  'fallback_cb'    => '__return_false',
+						  'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+						  'depth'          => 2,
+						  'walker'         => new nav_walker()
+					   ) ); ?>
+
 						<?php endif; ?>
 						<?php if (get_option('header_sidebar') && is_active_sidebar('header-sidebar')): ?>
 						<?php dynamic_sidebar('header-sidebar'); ?>
