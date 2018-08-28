@@ -66,7 +66,7 @@
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
 				<div class="container">
 					<a class="navbar-brand mb-0 h1" href="<?php echo esc_url(home_url('/')); ?>" title="<?php bloginfo('description'); ?>">
-						<img src="//getbootstrap.com/docs/4.1/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="<?php bloginfo('name'); ?>" />
+						<?php get_theme_logo(); ?>
 						<?php bloginfo('name'); ?>
 					</a>
 					<div class="collapse navbar-collapse" id="mainNavbar">
