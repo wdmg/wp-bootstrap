@@ -1,7 +1,7 @@
 {
   "name": "wp-bootstrap",
   "version": "1.0.0",
-  "description": "Blank Bootstrap theme for WordPress with admin panel",
+  "description": "Blank (starter) Bootstrap theme for WordPress with admin panel",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,6 +13,7 @@
   "keywords": [
     "wp",
     "bootstrap",
+    "starter",
     "theme"
   ],
   "author": "Alexsander Vyshnyvetskyy <alex.vyshnyvetskyy@gmail.com>",
