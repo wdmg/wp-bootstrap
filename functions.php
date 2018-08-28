@@ -24,6 +24,9 @@ add_action('after_setup_theme', function() {
 // Include custom navigation walker
 include 'inc/nav-walker.php';
 
+// Include custom template tags
+include 'inc/template-tags.php';
+
 // Include theme-options.php for admin theme settings
 include 'theme-options.php';
 
@@ -182,5 +185,10 @@ add_action('after_setup_theme', function() {
 	register_nav_menus($menu);
 });
 
+// Add other mime type for support
+add_filter('upload_mimes', function() {
+	$mimes['svg'] = 'image/svg+xml';
+	return $mimes;
+});
 
 ?>
