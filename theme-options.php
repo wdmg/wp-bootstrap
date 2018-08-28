@@ -46,7 +46,7 @@ function wp_bootstrap_options_callback() {
 	if($request['section'] == 'head-body-options') {
 
 		echo '<form method="POST" action="options.php">';
-		settings_fields('wp-bootstrap-head-body-options');
+		settings_fields('wp-bootstrap-enqueue-options');
 		do_settings_sections('head-body-options');
 		submit_button();
 		echo '</form>';
@@ -118,9 +118,15 @@ if (is_admin()) {
 	// Add theme options
 	add_action('admin_init', function() {
 
+		// Register enqueue script and css
+		for ($i=1; $i <= 10; $i++) {
+			register_settings('wp-bootstrap-enqueue-options', 'enqueue_css_'.$i);
+			register_settings('wp-bootstrap-enqueue-options', 'enqueue_js_'.$i);
+		}
+
 		// Global html-code for head/body section
-		register_settings('wp-bootstrap-head-body-options', 'header_code');
-		register_settings('wp-bootstrap-head-body-options', 'footer_code');
+		register_settings('wp-bootstrap-enqueue-options', 'header_code');
+		register_settings('wp-bootstrap-enqueue-options', 'footer_code');
 
 		// Register setting for sidebar`s visibility
 		register_settings('wp-bootstrap-sidebar-menu-options', 'top_sidebar');
@@ -137,6 +143,41 @@ if (is_admin()) {
 		register_settings('wp-bootstrap-sidebar-menu-options', 'left_sidebar_menu');
 		register_settings('wp-bootstrap-sidebar-menu-options', 'right_sidebar_menu');
 		register_settings('wp-bootstrap-sidebar-menu-options', 'footer_menu');
+
+
+		// Enqueue scripts and css
+		add_settings_section(
+			'wp-bootstrap-enqueue-options',
+			__('Enqueue scripts and css', 'wp-bootstrap'),
+			function() {
+				echo __('<p>Here you can connect your scripts and stylesheet files.</p>', 'wp-bootstrap');
+			},
+			'head-body-options'
+		);
+		for ($i=1; $i <= 10; $i++) {
+			add_settings_field(
+				'enqueue_css_'.$i,
+				__('Enqueue custom stylesheet ('.$i.')', 'wp-bootstrap'),
+				function() use ($i) {
+					echo '<input name="enqueue_css_'.$i.'" class="code" value="'.get_option('enqueue_css_'.$i).'" />';
+				},
+				'head-body-options',
+				'wp-bootstrap-enqueue-options'
+			);
+
+		}
+		for ($i=1; $i <= 10; $i++) {
+			add_settings_field(
+				'enqueue_js_'.$i,
+				__('Enqueue custom javascript ('.$i.')', 'wp-bootstrap'),
+				function() use ($i) {
+					echo '<input name="enqueue_js_'.$i.'" class="code" value="'.get_option('enqueue_js_'.$i).'" />';
+				},
+				'head-body-options',
+				'wp-bootstrap-enqueue-options'
+			);
+
+		}
 
 
 		// Head & Body options
@@ -298,7 +339,7 @@ if (is_admin()) {
 		);
 
 
-		// Menu visibility options
+		// Backup Export/Import
 		add_settings_section(
 			'wp-bootstrap-backup-restore-options',
 			__('Backup Export/Import settings', 'wp-bootstrap'),

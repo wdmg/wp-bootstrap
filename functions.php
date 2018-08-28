@@ -32,6 +32,24 @@ add_action('admin_head', function() {
 	wp_enqueue_script('admin-js', get_template_directory_uri().'/assets/js/admin.js', null, null, true);
 });
 
+// Enqueue front-end assets (css & js)
+add_action('wp_enqueue_scripts', function() {
+	global $version;
+	for ($i=1; $i <= 10; $i++) {
+		if(get_option('enqueue_css_'.$i)) {
+			$media = 'all';
+			wp_register_style('theme_css_'.$i, get_option('enqueue_css_'.$i), array(), null, $media);
+			wp_enqueue_style('theme_css_'.$i);
+		}
+	}
+	for ($i=1; $i <= 10; $i++) {
+		if(get_option('enqueue_js_'.$i)) {
+			$in_footer = false;
+			wp_register_script('theme_js_'.$i, get_option('enqueue_js_'.$i), array(), null, $in_footer);
+			wp_enqueue_script('theme_js_'.$i);
+		}
+	}
+});
 
 // Register head and body code
 add_action('wp_head', function() {
