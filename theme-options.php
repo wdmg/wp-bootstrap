@@ -58,7 +58,7 @@ function wp_bootstrap_options_callback() {
 		do_settings_sections('sidebar-menu-options');
 		submit_button();
 		echo '</form>';
-
+		
 	} else if($request['section'] == 'backup-restore-options') {
 
 		echo '<form method="POST" action="options.php">';
@@ -72,7 +72,13 @@ function wp_bootstrap_options_callback() {
 	} else if($request['section'] == 'theme-credits') {
 
 	} else { // default section: 'theme-options'
-
+		
+		echo '<form method="POST" action="options.php">';
+		settings_fields('wp-bootstrap-global-options');
+		do_settings_sections('theme-options');
+		submit_button();
+		echo '</form>';
+		
 	}
 
 	echo '</div>';
@@ -117,14 +123,17 @@ add_action('template_redirect', function() {
 if (is_admin()) {
 	// Add theme options
 	add_action('admin_init', function() {
-
+		
+		// Global options section
+		register_settings('wp-bootstrap-global-options', 'enable_sessions');
+		
 		// Register enqueue script and css
 		for ($i=1; $i <= 10; $i++) {
 			register_settings('wp-bootstrap-enqueue-options', 'enqueue_css_'.$i);
 			register_settings('wp-bootstrap-enqueue-options', 'enqueue_js_'.$i);
 		}
-
-		// Global html-code for head/body section
+		
+		// Html-code for head/body section
 		register_settings('wp-bootstrap-enqueue-options', 'header_code');
 		register_settings('wp-bootstrap-enqueue-options', 'footer_code');
 
@@ -147,6 +156,26 @@ if (is_admin()) {
 		register_settings('wp-bootstrap-sidebar-menu-options', 'footer_menu');
 
 
+		// Global options
+		add_settings_section(
+			'wp-bootstrap-global-options',
+			__('Global settings and system variables', 'wp-bootstrap'),
+			function() {
+				echo __('<p>Here you can enable or disable the necessary options for work.</p>', 'wp-bootstrap');
+			},
+			'theme-options'
+		);
+		add_settings_field(
+			'enable_sessions',
+			__('Enable session support', 'wp-bootstrap'),
+			function() {
+				echo '<input name="enable_sessions" type="checkbox" '.checked(1, get_option('enable_sessions'), false).' value="1" />';
+			},
+			'theme-options',
+			'wp-bootstrap-global-options'
+		);
+		
+		
 		// Enqueue scripts and css
 		add_settings_section(
 			'wp-bootstrap-enqueue-options',
