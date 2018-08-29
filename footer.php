@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Bootstrap footer template file
+ * WP Bootstrap footer template
  *
  * @package WordPress
  * @subpackage WP_Bootstrap
@@ -9,7 +9,7 @@
  */
 
 ?>
-		<footer class="fixed-bottom">
+		<footer>
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-12 col-sm-3">

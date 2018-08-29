@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Bootstrap header template file
+ * WP Bootstrap header template
  *
  * @package WordPress
  * @subpackage WP_Bootstrap

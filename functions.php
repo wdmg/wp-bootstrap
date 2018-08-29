@@ -30,6 +30,9 @@ add_action('after_setup_theme', function() {
 // Include custom navigation walker
 include 'inc/nav-walker.php';
 
+// Include custom pagination
+include 'inc/nav-pagination.php';
+
 // Include custom template tags
 include 'inc/template-tags.php';
 

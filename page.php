@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Bootstrap page template file
+ * WP Bootstrap page template
  *
  * @package WordPress
  * @subpackage WP_Bootstrap
@@ -10,19 +10,22 @@
 
 ?>
 <?php get_header(); ?>
-<main role="main" class="container">
+<section class="container">
 	<div class="row">
-		<div class="col-xs-12 col-sm-3 sidebar">
-			<?php get_sidebar('left'); ?>
-		</div>
-		<div class="col-xs-12 col-sm-6 content">
+		<?php get_sidebar('left'); ?>
+		<main id="mainContent" class="col-xs-12 col-sm-6 content" role="main">
 			<?php get_sidebar('before'); ?>
-
+			<?php
+				while (have_posts()) : the_post();
+					get_template_part('template-parts/content', 'page');
+					if (comments_open() || get_comments_number()) {
+						comments_template();
+					}
+				endwhile;
+			?>
 			<?php get_sidebar('after'); ?>
-		</div>
-		<div class="col-xs-12 col-sm-3 sidebar">
-			<?php get_sidebar('right'); ?>
-		</div>
+		</main>
+		<?php get_sidebar('right'); ?>
 	</div>
-</main>
+</section>
 <?php get_footer(); ?>
