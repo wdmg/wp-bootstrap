@@ -15,20 +15,24 @@ $shortname = "wp";
 $version = '1.0.0';
 $options = array();
 
-// Load theme languages
+// Load theme support and languages
 add_action('after_setup_theme', function() {
 	global $wp_version;
-	if (version_compare($wp_version, '3.4', '>=')):
-		add_theme_support('custom-header');
-	else :
-		add_custom_image_header($wp_head_callback, $admin_head_callback);
-	endif;
-
+	
 	if (!session_id() && get_option('enable_sessions'))
 		session_start();
 	
-	add_theme_support('title-tag');
-
+	if (function_exists('add_theme_support')) {
+		
+		if (version_compare($wp_version, '3.4', '>='))
+			add_theme_support('custom-header');
+		else
+			add_custom_image_header($wp_head_callback, $admin_head_callback);
+		
+		add_theme_support('menus');
+		add_theme_support('title-tag');
+	}
+	
 	load_theme_textdomain('wp-bootstrap', get_template_directory().'/languages');
 });
 
