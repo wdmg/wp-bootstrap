@@ -33,6 +33,17 @@ add_action('after_setup_theme', function() {
 		add_theme_support('title-tag');
 	}
 	
+	// Add custom clases if front/inner page
+	add_filter('body_class', function($classes) {
+		
+		if(is_front_page())
+			$classes[] = 'index';
+		else
+			$classes[] = 'inner';
+		
+		return $classes;
+	});
+	
 	load_theme_textdomain('wp-bootstrap', get_template_directory().'/languages');
 });
 
