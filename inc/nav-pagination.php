@@ -80,9 +80,9 @@ function nav_pagination( $args = array() ) {
 		$previous = esc_attr(get_pagenum_link($previous));
 
 		if ($previous && (1 != $page))
-			$echo .= '<li class="page-item previous"><a href="'.$previous.'" class="page-link" title="'.$args['prev_text'].'">'.$args['prev_text'].'</a>'.$args['add_fragment'].'</li>';
+			$echo .= '<li class="page-item prev"><a href="'.$previous.'" class="page-link" title="'.$args['prev_text'].'">'.$args['prev_text'].'</a>'.$args['add_fragment'].'</li>';
 		else
-			$echo .= '<li class="page-item previous disabled"><span class="page-link">'.$args['prev_text'].'</span></li>';
+			$echo .= '<li class="page-item prev disabled"><span class="page-link">'.$args['prev_text'].'</span></li>';
 	}
 
     if ($args['end_size']) {
